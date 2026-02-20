@@ -205,9 +205,9 @@ GROUP BY 1
 ORDER BY 2 DESC
 LIMIT 10;
 ```
-Objective: Identify most featured actors in Indian content.
-
 Objective: Identify the most prominent actors in the Indian film and television industry on Netflix.
+
+---
 
 Findings and Conclusion
 Content Dominance: The library is heavily weighted toward Movies, though TV Shows represent a significant and growing portion of the platform.
