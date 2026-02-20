@@ -25,17 +25,26 @@ SELECT
     COUNT(*) 
 FROM netflix
 GROUP BY 1;
+```
 Objective: Understand the distribution of content types available on the platform.
 
-2. List All Movies Released in a Specific Year (e.g., 2020)
-SQL
-SELECT * FROM netflix
+---
+
+### 2. List All Movies Released in a Specific Year (e.g., 2020)
+
+```sql
+SELECT * 
+FROM netflix
 WHERE release_year = 2020 
   AND type = 'Movie';
+```
 Objective: Retrieve all movies released in a specific year to analyze content freshness.
 
-3. Find the Top 5 Countries with the Most Content on Netflix
-SQL
+---
+
+### 3. Find the Top 5 Countries with the Most Content on Netflix
+
+```sql
 SELECT 
     UNNEST(STRING_TO_ARRAY(country, ',')) as new_country,
     COUNT(show_id) as total_content 
@@ -43,59 +52,90 @@ FROM netflix
 GROUP BY 1
 ORDER BY 2 DESC
 LIMIT 5;
+```
 Objective: Identify the top 5 countries contributing the most content to the library.
 
-4. Identify the Longest Movie
-SQL
-SELECT * FROM netflix
+---
+
+### 4. Identify the Longest Movie
+
+```sql
+SELECT * 
+FROM netflix
 WHERE type = 'Movie' 
   AND duration = (SELECT MAX(duration) FROM netflix);
+```
 Objective: Find the single movie with the longest runtime across the entire dataset.
 
-5. List all "TV Shows" Produced in "India"
-SQL
+---
+
+### 5. List all "TV Shows" Produced in "India"
+
+```sql
 SELECT 
     title, 
     country 
 FROM netflix
 WHERE type = 'TV Show' 
   AND country = 'India';
-Objective: Filter content specifically produced in the Indian market to understand regional saturation.
+```
+Objective: Filter content specifically produced in the Indian market.
 
-6. Find all Content Directed by 'Kirsten Johnson'
-SQL
-SELECT * FROM netflix 
+---
+
+### 6. Find all Content Directed by 'Kirsten Johnson'
+
+```sql
+SELECT * 
+FROM netflix 
 WHERE director ILIKE '%Kirsten Johnson%';
-Objective: Retrieve the full portfolio of a specific director from the database.
+```
+Objective: Retrieve the full portfolio of a specific director.
 
-7. List all Movies Categorized as 'Documentaries'
-SQL
-SELECT * FROM netflix
+---
+
+### 7. List all Movies Categorized as 'Documentaries'
+
+```sql
+SELECT * 
+FROM netflix
 WHERE type = 'Movie' 
   AND listed_in ILIKE '%Documentaries%';
-Objective: Filter the dataset for specific genres using keyword matching.
+```
+Objective: Filter the dataset for documentary genre.
 
-8. Total Number of Content Items for Each Rating
-SQL
+---
+
+### 8. Total Number of Content Items for Each Rating
+
+```sql
 SELECT 
     rating, 
     COUNT(*) as content 
 FROM netflix
 GROUP BY 1 
 ORDER BY 2 DESC;
-Objective: Identify the most common content ratings to understand target audience demographics.
+```
+Objective: Identify the most common content ratings.
 
-9. List All Shows Added in the Month of 'September'
-SQL
+---
+
+### 9. List All Shows Added in the Month of 'September'
+
+```sql
 SELECT 
     title, 
     date_added 
 FROM netflix
 WHERE date_added ILIKE '%September%';
-Objective: Analyze the frequency and timing of content additions in a specific month.
+```
+Objective: Analyze the timing of content additions.
 
-10. Identify Directors with More Than 10 Movies or Shows
-SQL
+---
+
+### 10. Identify Directors with More Than 10 Movies or Shows
+
+```sql
 SELECT 
     director,
     COUNT(*) as total_content 
@@ -104,10 +144,14 @@ WHERE director IS NOT NULL
 GROUP BY 1
 HAVING COUNT(*) >= 10
 ORDER BY 2 DESC;
-Objective: Highlight prolific directors who have significant contributions to the platform.
+```
+Objective: Highlight prolific directors.
 
-11. Categorize Content into 'Old' and 'New'
-SQL
+---
+
+### 11. Categorize Content into 'Old' and 'New'
+
+```sql
 SELECT 
     title,
     CASE 
@@ -115,10 +159,14 @@ SELECT
         ELSE 'New'
     END as category 
 FROM netflix;
-Objective: Group content based on release vintage to see the balance of legacy vs. modern titles.
+```
+Objective: Group content based on release year.
 
-12. Find the Year with the Most Content Added
-SQL
+---
+
+### 12. Find the Year with the Most Content Added
+
+```sql
 SELECT 
     TRIM(SPLIT_PART(date_added, ',', 2)) as year_added, 
     COUNT(*) as total_content_added 
@@ -127,19 +175,27 @@ WHERE date_added IS NOT NULL
 GROUP BY 1 
 ORDER BY 2 DESC
 LIMIT 1;
-Objective: Pinpoint the specific year Netflix experienced its largest library growth.
+```
+Objective: Identify peak content addition year.
 
-13. Average Release Year for Each Content Type
-SQL
+---
+
+### 13. Average Release Year for Each Content Type
+
+```sql
 SELECT 
     type, 
     ROUND(AVG(release_year), 2) as avg_release_year
 FROM netflix
 GROUP BY 1;
-Objective: Calculate the "average age" of movies compared to TV shows.
+```
+Objective: Calculate average release year by type.
 
-14. Top 10 Actors with Most Content in India
-SQL
+---
+
+### 14. Top 10 Actors with Most Content in India
+
+```sql
 SELECT 
     UNNEST(STRING_TO_ARRAY(casts, ',')) as actors, 
     COUNT(*) as projects 
@@ -147,7 +203,9 @@ FROM netflix
 WHERE country = 'India'
 GROUP BY 1 
 ORDER BY 2 DESC
-LIMIT 10; ```
+LIMIT 10;
+```
+Objective: Identify most featured actors in Indian content.
 
 Objective: Identify the most prominent actors in the Indian film and television industry on Netflix.
 
