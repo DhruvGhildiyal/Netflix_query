@@ -209,7 +209,8 @@ Objective: Identify the most prominent actors in the Indian film and television 
 
 ---
 
-Findings and Conclusion
+###Findings and Conclusion
+
 Content Dominance: The library is heavily weighted toward Movies, though TV Shows represent a significant and growing portion of the platform.
 
 Regional Leaders: The United States and India emerge as the top content producers, reflecting Netflix's strategy of balancing Hollywood global appeal with strong regional (Bollywood) presence.
