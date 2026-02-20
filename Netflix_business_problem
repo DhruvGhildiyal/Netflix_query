@@ -1,0 +1,16 @@
+Netflix Analysis: 14 Business Problems
+
+ 1. Count the total number of Movies versus TV Shows currently available on Netflix.
+ 2. Identify and list all movies that were released in the year 2020.
+ 3. Determine the top 5 countries with the highest amount of content (Movies & TV Shows) on the platform.
+ 4. Find the movie with the longest duration (runtime) in the entire dataset.
+ 5. List all TV Shows that were specifically produced in India.
+ 6. Retrieve all content (Movies and TV Shows) directed by 'Kirsten Johnson'.
+ 7. List all movies that are categorized under the 'Documentaries' genre.
+ 8. Find the total number of content items associated with each rating (e.g., PG-13, TV-MA, etc.).
+ 9. Identify and list all shows that were added to the Netflix library during the month of September.
+ 10. Identify directors who have directed a minimum of 10 movies or TV shows on the platform.
+ 11. Classify content into two categories: 'Old' (released before 2010) and 'New' (released in 2010 or later).
+ 12. Determine the specific year in which Netflix added the highest volume of content to its platform.
+ 13. Calculate the average release year for each content type (Movie vs. TV Show).
+ 14. Identify the top 10 actors who have appeared in the highest number of movies or TV shows produced in India.
