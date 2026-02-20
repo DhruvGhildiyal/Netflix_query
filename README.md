@@ -1,4 +1,5 @@
 # Netflix Movies and TV Shows Data Analysis using SQL
+![Netflix_logo](https://github.com/DhruvGhildiyal/Netflix_query/blob/main/Netflix_logo.jpg)
 
 Netflix Movies and TV Shows Data Analysis using SQL
 Project Overview
