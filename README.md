@@ -15,120 +15,142 @@ Top Talent: Identify prolific directors and actors, specifically within the Indi
 
 Content Categorization: Segment data based on release years and genres.
 
-Business Problems and Solutions
-1. Count the Number of Movies vs TV Shows
-Objective: Understand the balance of content types on the platform.
+## 14 Business Problems & Solutions
 
-SQL
-SELECT type, COUNT(*) 
+### 1. Count the Number of Movies vs TV Shows
+
+```sql
+SELECT 
+    type,
+    COUNT(*) 
 FROM netflix
-GROUP BY type;
-2. List All Movies Released in a Specific Year (2020)
-Objective: Filter content for targeted year-over-year analysis.
+GROUP BY 1;
+Objective: Understand the distribution of content types available on the platform.
 
+2. List All Movies Released in a Specific Year (e.g., 2020)
 SQL
 SELECT * FROM netflix
-WHERE release_year = 2020 AND type = 'Movie';
-3. Top 5 Countries with the Most Content
-Objective: Identify the primary geographical markets for Netflix content.
-(Note: Using UNNEST and STRING_TO_ARRAY to handle multiple countries listed in a single row).
+WHERE release_year = 2020 
+  AND type = 'Movie';
+Objective: Retrieve all movies released in a specific year to analyze content freshness.
 
+3. Find the Top 5 Countries with the Most Content on Netflix
 SQL
 SELECT 
-    UNNEST(STRING_TO_ARRAY(country, ',')) AS new_country,
-    COUNT(show_id) AS content 
+    UNNEST(STRING_TO_ARRAY(country, ',')) as new_country,
+    COUNT(show_id) as total_content 
 FROM netflix
 GROUP BY 1
-ORDER BY content DESC
+ORDER BY 2 DESC
 LIMIT 5;
-4. Identify the Longest Movie
-Objective: Find the maximum runtime among movies.
+Objective: Identify the top 5 countries contributing the most content to the library.
 
+4. Identify the Longest Movie
 SQL
 SELECT * FROM netflix
 WHERE type = 'Movie' 
-AND duration = (SELECT MAX(duration) FROM netflix);
-5. TV Shows Produced in India
-Objective: Filter content by a specific regional market.
+  AND duration = (SELECT MAX(duration) FROM netflix);
+Objective: Find the single movie with the longest runtime across the entire dataset.
 
+5. List all "TV Shows" Produced in "India"
 SQL
-SELECT title, country FROM netflix
-WHERE type = 'TV Show' AND country = 'India';
-6. Content Directed by 'Kirsten Johnson'
-Objective: Retrieve the portfolio of a specific director.
+SELECT 
+    title, 
+    country 
+FROM netflix
+WHERE type = 'TV Show' 
+  AND country = 'India';
+Objective: Filter content specifically produced in the Indian market to understand regional saturation.
 
+6. Find all Content Directed by 'Kirsten Johnson'
 SQL
 SELECT * FROM netflix 
 WHERE director ILIKE '%Kirsten Johnson%';
-7. Documentaries Category
-Objective: Perform a keyword search for specific genres.
+Objective: Retrieve the full portfolio of a specific director from the database.
 
+7. List all Movies Categorized as 'Documentaries'
 SQL
 SELECT * FROM netflix
-WHERE type = 'Movie' AND listed_in ILIKE '%Documentaries%';
-8. Content Distribution by Rating
-Objective: Understand the target audience demographics based on ratings.
+WHERE type = 'Movie' 
+  AND listed_in ILIKE '%Documentaries%';
+Objective: Filter the dataset for specific genres using keyword matching.
 
+8. Total Number of Content Items for Each Rating
 SQL
-SELECT rating, COUNT(*) AS content 
+SELECT 
+    rating, 
+    COUNT(*) as content 
 FROM netflix
-GROUP BY rating 
-ORDER BY content DESC;
-9. Content Added in September
-Objective: Analyze seasonal upload patterns.
+GROUP BY 1 
+ORDER BY 2 DESC;
+Objective: Identify the most common content ratings to understand target audience demographics.
 
+9. List All Shows Added in the Month of 'September'
 SQL
-SELECT title, date_added FROM netflix
+SELECT 
+    title, 
+    date_added 
+FROM netflix
 WHERE date_added ILIKE '%September%';
-10. Prolific Directors (>10 Titles)
-Objective: Identify key creators with a significant volume of work.
+Objective: Analyze the frequency and timing of content additions in a specific month.
 
+10. Identify Directors with More Than 10 Movies or Shows
 SQL
-SELECT director, COUNT(*) AS Total_content 
+SELECT 
+    director,
+    COUNT(*) as total_content 
 FROM netflix
 WHERE director IS NOT NULL
 GROUP BY 1
 HAVING COUNT(*) >= 10
 ORDER BY 2 DESC;
-11. Content Age Categorization
-Objective: Classify content into "Old" and "New" based on the release year.
+Objective: Highlight prolific directors who have significant contributions to the platform.
 
+11. Categorize Content into 'Old' and 'New'
 SQL
-SELECT title,
-CASE 
-    WHEN release_year < 2010 THEN 'Old'
-    ELSE 'New'
-END AS category 
+SELECT 
+    title,
+    CASE 
+        WHEN release_year <= 2010 THEN 'Old'
+        ELSE 'New'
+    END as category 
 FROM netflix;
-12. Peak Year for Content Additions
-Objective: Identify the year Netflix expanded its library most aggressively.
+Objective: Group content based on release vintage to see the balance of legacy vs. modern titles.
 
+12. Find the Year with the Most Content Added
 SQL
-SELECT TRIM(SPLIT_PART(date_added, ',', 2)) AS year_added, 
-       COUNT(*) AS total_content_added 
+SELECT 
+    TRIM(SPLIT_PART(date_added, ',', 2)) as year_added, 
+    COUNT(*) as total_content_added 
 FROM netflix
 WHERE date_added IS NOT NULL
 GROUP BY 1 
 ORDER BY 2 DESC
 LIMIT 1;
-13. Average Release Year per Content Type
-Objective: Compare the "freshness" or vintage nature of movies vs. shows.
+Objective: Pinpoint the specific year Netflix experienced its largest library growth.
 
+13. Average Release Year for Each Content Type
 SQL
-SELECT type, ROUND(AVG(release_year), 2) AS avg_release_year
+SELECT 
+    type, 
+    ROUND(AVG(release_year), 2) as avg_release_year
 FROM netflix
 GROUP BY 1;
-14. Top 10 Indian Actors
-Objective: Identify the most frequently appearing actors in Indian productions.
+Objective: Calculate the "average age" of movies compared to TV shows.
 
+14. Top 10 Actors with Most Content in India
 SQL
-SELECT UNNEST(STRING_TO_ARRAY(casts, ',')) AS Actors, 
-       COUNT(*) AS Projects 
+SELECT 
+    UNNEST(STRING_TO_ARRAY(casts, ',')) as actors, 
+    COUNT(*) as projects 
 FROM netflix
 WHERE country = 'India'
 GROUP BY 1 
 ORDER BY 2 DESC
-LIMIT 10;
+LIMIT 10; ```
+
+Objective: Identify the most prominent actors in the Indian film and television industry on Netflix.
+
 Findings and Conclusion
 Content Dominance: The library is heavily weighted toward Movies, though TV Shows represent a significant and growing portion of the platform.
 
