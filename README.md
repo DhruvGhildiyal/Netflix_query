@@ -2,13 +2,13 @@
 ![Netflix_logo](https://github.com/DhruvGhildiyal/Netflix_query/blob/main/Netflix_logo.jpg)
 
 Netflix Movies and TV Shows Data Analysis using SQL
----
+
 ##Project Overview
 ---
 This project involves a comprehensive analysis of Netflix's movies and TV shows data using PostgreSQL. The goal is to extract valuable insights regarding content trends, directorial dominance, geographical distribution, and category breakdowns. This analysis provides a deep dive into the Netflix library to understand content evolution over the years.
 
 ## Objectives
----
+
 - **Content Distribution:** Quantify the split between Movies and TV Shows.
 
 - **Growth Trends:** Identify the years and months with the highest content additions.
