@@ -216,7 +216,6 @@ Objective: Identify the most prominent actors in the Indian film and television 
 
 ## Findings and Conclusion
 
----
 
 - **Content Dominance:** Netflix’s library is mainly made up of movies, although the number of TV shows is steadily increasing over time.
 
