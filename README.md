@@ -214,14 +214,16 @@ Objective: Identify the most prominent actors in the Indian film and television 
 
 ---
 
-###Findings and Conclusion
+## Findings and Conclusion
 
-Content Dominance: The library is heavily weighted toward Movies, though TV Shows represent a significant and growing portion of the platform.
+---
 
-Regional Leaders: The United States and India emerge as the top content producers, reflecting Netflix's strategy of balancing Hollywood global appeal with strong regional (Bollywood) presence.
+- **Content Dominance:** Netflix’s library is mainly made up of movies, although the number of TV shows is steadily increasing over time.
 
-Release Trends: The average release year for both movies and shows is quite recent (post-2010), indicating that Netflix prioritizes newer content to keep subscribers engaged.
+- **Regional Leaders:** The United States and India appear to be the leading content producers, highlighting Netflix’s focus on combining global Hollywood content with strong regional offerings like Bollywood.
 
-Director Influence: A small group of directors has contributed significantly to the platform, suggesting recurring partnerships between Netflix and specific creators.
+- **Release Trends:** Most of the content available on the platform has been released after 2010, suggesting that Netflix prioritizes relatively recent titles to maintain user interest.
 
-Audience Targeting: The majority of content is rated for "Mature" audiences (TV-MA), followed by "Teen" audiences (TV-14), showing a focus on adult-oriented storytelling.
+- **Director Influence:** A few directors have contributed a large amount of content, which may indicate ongoing collaborations between Netflix and certain creators.
+
+- **Audience Targeting:** A significant portion of the content falls under mature audience ratings such as TV-MA and TV-14, pointing toward a stronger emphasis on adult-oriented storytelling.
